@@ -14,7 +14,7 @@ public class JmsConsumer_TX {
         ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory(ACTIVEMQ_URL);
         Connection connection = activeMQConnectionFactory.createConnection();
         connection.start();
-        Session session=connection.createSession(true,Session.AUTO_ACKNOWLEDGE);
+        Session session=connection.createSession(true,Session.CLIENT_ACKNOWLEDGE);
         Queue queue = session.createQueue(QUEUE_NAME);
 
         //创建消费者
@@ -27,6 +27,7 @@ public class JmsConsumer_TX {
                     TextMessage textMessage= (TextMessage) message;
                     try {
                         System.out.println("*******消费者接收到消息:"+textMessage.getText());
+                        textMessage.acknowledge();
                     } catch (JMSException e) {
                         e.printStackTrace();
                     }
