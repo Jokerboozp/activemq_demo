@@ -26,7 +26,7 @@ public class SpringMQ_Producer {
         produce.jmsTemplate.send(new MessageCreator() {
             @Override
             public Message createMessage(Session session) throws JMSException {
-                TextMessage textMessage = session.createTextMessage("********spring和ActiveMQ的整合例子******");
+                TextMessage textMessage = session.createTextMessage("********spring和ActiveMQ的整合例子topic111******");
                 return textMessage;
             }
         });
