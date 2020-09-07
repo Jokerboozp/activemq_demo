@@ -11,8 +11,8 @@ import javax.jms.TextMessage;
 public class MyMessageListener implements MessageListener {
     @Override
     public void onMessage(Message message) {
-        if (null != message && message instanceof TextMessage){
-            TextMessage textMessage=(TextMessage)message;
+        if (null != message && message instanceof TextMessage) {
+            TextMessage textMessage = (TextMessage) message;
             try {
                 System.out.println(textMessage.getText());
             } catch (JMSException e) {

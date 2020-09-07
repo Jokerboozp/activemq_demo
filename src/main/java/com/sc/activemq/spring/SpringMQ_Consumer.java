@@ -18,6 +18,6 @@ public class SpringMQ_Consumer {
 
         String retValue = (String) consumer.jmsTemplate.receiveAndConvert();
 
-        System.out.println("********消费者收到的消息:"+retValue);
+        System.out.println("********消费者收到的消息:" + retValue);
     }
 }

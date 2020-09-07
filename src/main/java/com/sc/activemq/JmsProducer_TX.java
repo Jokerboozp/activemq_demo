@@ -6,8 +6,8 @@ import javax.jms.*;
 
 public class JmsProducer_TX {
 
-    public static final String ACTIVEMQ_URL="tcp://192.168.64.128:61616";
-    public static final String QUEUE_NAME="tx-message";
+    public static final String ACTIVEMQ_URL = "tcp://192.168.64.128:61616";
+    public static final String QUEUE_NAME = "tx-message";
 
     public static void main(String[] args) throws JMSException {
         //创建连接工厂,按照给定的url地址，采用默认用户名和密码
@@ -31,7 +31,7 @@ public class JmsProducer_TX {
         messageProducer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
 
         //通过使用消息生产者生产3条消息发送到mq队列中
-        for (int i=1;i<=3;i++){
+        for (int i = 1; i <= 3; i++) {
             //创建消息
             TextMessage textMessage = session.createTextMessage("tx msg----:" + i);//创建一个字符串
             //通过消息生产者发送给mq
